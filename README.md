@@ -28,7 +28,7 @@ The open source version of dataloader is available from: https://github.com/forc
   ```
   $ bin/encrypt.sh -e <password> conf/private.key
   ```
-4. Copy the output from Step 4 above to the conf/config.properties file for the sfdc.password token 
+4. Copy the output from Step 3 above to the conf/config.properties file for the sfdc.password token 
 5. Update the conf/config.properties file with sfdc.username and sfdc.endpoint token values
 6. Optionally, adjust any other parameters in the conf/config.properties file
 7. Run the sample account extract process
@@ -36,9 +36,7 @@ The open source version of dataloader is available from: https://github.com/forc
   $ bin/process.sh csvAccountExtractProcess
   ```
 
-This should produce the output file in the data/ directory and if the debug log was enabled, the trace file in the status/ directory. 
+This runs the extract process as configured inside process-conf.xml
 
-Enjoy!
-
--Senthil
+Credits: Senthil Thiyagarajan
 

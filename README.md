@@ -9,10 +9,9 @@ The open source version of dataloader is available from: https://github.com/forc
 
 ##Requirements: 
 
-1. Java 1.6+, available in the PATH
+1. Java SE >=11, available in the PATH (https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-2. DataLoader JAR file from Windows or built from the open source project. 
-(The current name/version of the jar file is: dataloader-30.0.0-uber.jar)
+
 
 ##Steps: 
 
@@ -20,20 +19,19 @@ The open source version of dataloader is available from: https://github.com/forc
   ```
   $ git clone https://github.com/sthiyaga/dataloader.git
   ```
-2. Copy the dataloader-30.0.0-uber.jar file to dataloader/ directory
-3. Generate the private key to encrypt the password
+2. Generate the private key to encrypt the password
   ```
-  $ bin/encrypt.sh -g <some-random-seed-text> 
+  $ bin/encrypt.sh -k <path to private.key file (ex. conf/>private.key)> 
   ```
-4. Copy the output from Step 3 above to conf/private.key (replacing the text in there)
-5. Encrypt the salesforce password (+security token, if required) using the generated private key
+
+3. Encrypt the salesforce password (+security token, if required) using the generated private key
   ```
-  $ bin/encrypt.sh -e "password+security token" conf/private.key
+  $ bin/encrypt.sh -e <password> conf/private.key
   ```
-6. Copy the output from Step 4 above to the conf/config.properties file for the sfdc.password token 
-7. Update the conf/config.properties file with sfdc.username and sfdc.endpoint token values
-8. Optionally, adjust any other parameters in the conf/config.properties file
-9. Run the sample account extract process
+4. Copy the output from Step 4 above to the conf/config.properties file for the sfdc.password token 
+5. Update the conf/config.properties file with sfdc.username and sfdc.endpoint token values
+6. Optionally, adjust any other parameters in the conf/config.properties file
+7. Run the sample account extract process
   ```
   $ bin/process.sh csvAccountExtractProcess
   ```
